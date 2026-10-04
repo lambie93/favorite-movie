@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rotten Tomatoes Movie Data Analysis</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+
+            <a href="https://girlswhocode.com/">
+                <img
+                    class="logo"
+                    src="Girls_Who_Code_Logo.svg (1).webp"
+                    alt="Girls Who Code Logo"
+                    width="150"
+                >
+            </a>
+
+            <div class="nav-links">
+                <a href="#favorite">Favorite Movie</a>
+                <a href="#comparison">Comparison</a>
+                <a href="#visualizations">Visualizations</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="content-container hero-content">
+
+            <p class="eyebrow">
+                TALKING DATA: COMPARING FAVORITES
+            </p>
+
+            <h1>
+                Rotten Tomatoes<br>
+                Movie Data Analysis
+            </h1>
+
+            <p class="hero-description">
+                Exploring how <strong>Jennifer's Body</strong> compares
+                to other horror movies in the dataset.
+            </p>
+
+            <a href="#favorite" class="button">
+                Explore the Data ↓
+            </a>
+
+        </div>
+    </section>
+
+
+    <main>
+
+        <!-- Favorite Movie -->
+        <section id="favorite" class="section">
+            <div class="content-container">
+
+                <div class="section-number">01</div>
+
+                <h2>My Favorite Movie</h2>
+
+                <p class="intro">
+                    My favorite movie is
+                    <strong>Jennifer's Body</strong>.
+                </p>
+
+                <div class="movie-card">
+                    <p>
+                        I wanted to investigate how my favorite movie
+                        compares with other movies in the horror genre.
+                    </p>
+                </div>
+
+                <h3 class="subheading">
+                    The Data for My Favorite Movie
+                </h3>
+
+                <div id="favoriteMovieTable" class="table-container">
+                    <p class="loading">
+                        Loading movie data...
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Horror Movie Comparison -->
+        <section id="comparison" class="section comparison-section">
+            <div class="content-container">
+
+                <div class="section-number">02</div>
+
+                <h2>Comparing Horror Movies</h2>
+
+                <p class="intro">
+                    We will be comparing
+                    <strong>Jennifer's Body</strong>
+                    to other movies under the horror genre
+                    in the dataset.
+                </p>
+
+                <div class="big-number-card">
+                    <span id="movieCount">—</span>
+
+                    <p>
+                        movies under the category horror
+                    </p>
+                </div>
+
+                <h3 class="subheading">
+                    Audience Rating Statistics
+                </h3>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <span class="stat-label">MINIMUM</span>
+                        <span id="minRating" class="stat-number">—</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-label">MAXIMUM</span>
+                        <span id="maxRating" class="stat-number">—</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-label">MEAN</span>
+                        <span id="meanRating" class="stat-number">—</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <span class="stat-label">MEDIAN</span>
+                        <span id="medianRating" class="stat-number">—</span>
+                    </div>
+
+                </div>
+
+                <div id="comparisonText" class="comparison-box">
+                    <p>Loading comparison...</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Visualizations -->
+        <section id="visualizations" class="section">
+            <div class="content-container">
+
+                <div class="section-number">03</div>
+
+                <h2>Data Visualizations</h2>
+
+                <p class="intro">
+                    These graphs help visualize the audience ratings
+                    of horror movies and the relationship between
+                    audience and critic ratings.
+                </p>
+
+
+                <!-- Histogram -->
+                <div class="visualization-card">
+
+                    <div class="visualization-heading">
+                        <span class="graph-number">01</span>
+
+                        <h3>
+                            Audience Ratings of Horror Movies
+                        </h3>
+                    </div>
+
+                    <div id="histogram" class="chart"></div>
+
+                    <div class="interpretation">
+                        <h4>Interpretation</h4>
+
+                        <p>
+                            According to the histogram, most horror movies
+                            have ratings in the 29–33 range. The majority
+                            of movies are rated below 50, with a few extreme
+                            values at 0 and 100. Overall, the distribution
+                            appears roughly bell-shaped but is slightly
+                            left-skewed, indicating a longer tail on the
+                            lower end of the ratings.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Scatterplot -->
+                <div class="visualization-card">
+
+                    <div class="visualization-heading">
+                        <span class="graph-number">02</span>
+
+                        <h3>
+                            Audience Rating versus Critic Rating
+                        </h3>
+                    </div>
+
+                    <div id="scatterplot" class="chart"></div>
+
+                    <div class="interpretation">
+                        <h4>Interpretation</h4>
+
+                        <p>
+                            According to the scatter plot of audience rating
+                            versus critic rating, there is a positive
+                            correlation, with no clear pattern disruptions
+                            and no apparent outliers.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="conclusion">
+
+        <div class="content-container">
+
+            <div class="section-number">04</div>
+
+            <h2>Conclusion</h2>
+
+            <p>
+                Thank you for reading through my data analysis!
+            </p>
+
+            <a href="#home" class="button">
+                Back to Top ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
